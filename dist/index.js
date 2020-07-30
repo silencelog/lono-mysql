@@ -1,13 +1,11 @@
 "use strict";
 
-var _promise = _interopRequireDefault(require("mysql2/promise"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// import mysql from 'mysql2'
+// import mysqlPromise from 'mysql2/promise'
 class LodeMysql {
   constructor(opt, mysql) {
     this.name = 'mysql';
@@ -61,7 +59,7 @@ class LodeMysql {
       delete client.type;
       delete client.username;
       delete client.name;
-      const conn = yield _promise.default.createConnection(client);
+      const conn = yield mysql.createConnection(client);
       return conn;
     })();
   }
@@ -90,7 +88,7 @@ class LodeMysql {
 }
 
 module.exports = function (opt) {
-  const mysql = require('mysql2');
+  const mysql = require('mysql2/promise');
 
   return new LodeMysql(opt, mysql);
 };

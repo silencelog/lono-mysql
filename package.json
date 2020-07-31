@@ -1,6 +1,6 @@
 {
   "name": "@lono/mysql",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "@lono/mysql",
   "scripts": {
     "build": "babel lib -d dist",
@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.10.1",
     "@babel/register": "^7.10.1",
     "mocha": "^6.2.3",
+    "mysql2": "^2.1.0",
     "nodemon": "^2.0.4"
   },
   "repository": {},
